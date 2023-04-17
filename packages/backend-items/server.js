@@ -5,6 +5,7 @@ var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 // set path
 dotenv.config({ path: './.env' });
