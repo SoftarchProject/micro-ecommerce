@@ -39,8 +39,8 @@ export default function Card(itemProps: itemProps = {name: "", price: 0}) {
             <div className='flex flex-col justify-center'>
                 <div className="px-6 py-4">
                     <div className="mb-2 text-xl font-bold">{itemProps['name']}</div>
-                    <p className="text-gray-700 t">
-                        Price: {itemProps['price']}
+                    <p className="text-xl text-gray-700">
+                        Price: {itemProps['price']} Baht
                     </p>
                 </div>
                 <div className="px-6 pt-4 pb-2">
