@@ -1,25 +1,43 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
-interface storageInterface{
-    fishes: {items: itemInterface[]},
+interface storageInterface {
+    fishes: {
+        items: {
+            [keyId: string]: {
+                name: string
+                price: number
+                count: number
+            }
+        }
+    },
 
-    addAFish:(items:itemInterface
-        )=> void
+    addAFish: (itemId: string, name: string, price: number, quality: number) => void
+    clearFish: () => void
 }
 
-interface itemInterface{
-        name: string, 
-        price: number
+interface itemInterface {
+    itemId: string
 }
 
 export const useFishStore = create<storageInterface>()(
     persist(
         (set) => ({
-            fishes: {items:[]},
-            addAFish: (item:itemInterface) => set((state)=>({ fishes: {
-                items:[...state.fishes.items,item]
-            }})),
+            fishes: { items: {} },
+            addAFish: (itemId: string, name: string, price: number, quality: number) => set((state) => ({
+                fishes: {
+                    items: { ...state.fishes.items,
+                         [itemId]: {name, price, count:quality} }
+                }
+            })),
+            clearFish: ()=>{
+                console.log("Test")
+                set((state) => ({
+                    fishes: {
+                        items: {}
+                    }
+                }))
+            }
         }),
         {
             name: 'items-storage', // unique name

@@ -1,11 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Navbar from '../components/Navbar'
+import axiosBaseUrl from '../axiosBaseUrl'
 
 function History() {
   const [count, setCount] = useState(0)
+  const [data, setData] = useState(null)
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let { data } = await axiosBaseUrl.axiosHistoryInstance.get(`/api/history`)
+        setData(data)
+        console.log(data)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    fetchData();
+  }, [])
+
+  console.log(data)
   return (
     <div className="flex justify-center min-h-screen">
       {/* Navbar */}
@@ -24,27 +40,28 @@ function History() {
                   </tr>
                 </thead>
                 <tbody>
+                  { data?.map((items: any, index: any) => 
                   <tr
                     className="transition duration-300 ease-in-out border-b hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
-                    <td className="px-6 py-4 font-medium whitespace-nowrap">1</td>
-                    <td className="px-6 py-4 whitespace-nowrap">Dec Tree</td>
-                    <td className="px-6 py-4 whitespace-nowrap">232</td>
-                    <td className="px-6 py-4 whitespace-nowrap">2</td>
+                    <td className="px-6 py-4 font-medium whitespace-nowrap">{items._id}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {Object.values(items.keyId).map((item: any, index:any)=>
+                      <div> {item?.name} </div>
+                      )}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {Object.values(items.keyId).map((item: any, index:any)=>
+                      <div> {item?.price} </div>
+                      )}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {Object.values(items.keyId)?.reduce((accumulator:any, currentValue:any) => {
+                        return accumulator + (currentValue.price*currentValue.count)
+                      }, 0)
+                      }
+                    </td>
                   </tr>
-                  <tr
-                    className="transition duration-300 ease-in-out border-b hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
-                    <td className="px-6 py-4 font-medium whitespace-nowrap">2</td>
-                    <td className="px-6 py-4 whitespace-nowrap">Death Tree</td>
-                    <td className="px-6 py-4 whitespace-nowrap">125215</td>
-                    <td className="px-6 py-4 whitespace-nowrap">1</td>
-                  </tr>
-                  <tr
-                    className="transition duration-300 ease-in-out border-b hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
-                    <td className="px-6 py-4 font-medium whitespace-nowrap">3</td>
-                    <td className="px-6 py-4 whitespace-nowrap">Desert Tree</td>
-                    <td className="px-6 py-4 whitespace-nowrap">1234</td>
-                    <td className="px-6 py-4 whitespace-nowrap">2</td>
-                  </tr>
+                  )}
                 </tbody>
               </table>
             </div>

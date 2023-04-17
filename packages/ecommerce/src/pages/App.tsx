@@ -40,7 +40,7 @@ function App() {
               <h1 className='py-2'> {item?.type} </h1>
               <div className='flex flex-col rounded md:max-w-full md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 gap-y-6'>
               {data?.map((itemIn: any, index: number) => itemIn?.type == item?.type &&
-                <Card name={itemIn?.name} price={itemIn?.price} img="https://th.bing.com/th?id=ORMS.cf3843c70cea21bad263b63d5aee9e21&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0"></Card>
+                <Card _id={itemIn?._id} name={itemIn?.name} price={itemIn?.price} img={itemIn?.image}></Card>
               )}
               </div>
             </div>

@@ -18,9 +18,8 @@ app.use(jsonParser)
 const historySchema = new mongoose.Schema({
     // Define the schema fields here
     // For example:
-    name: String,
-    price: String,
-    totalPrice: Number
+    keyId: Object, 
+    datetime: Date 
 });
 
 const History = mongoose.model('History', historySchema);
@@ -51,19 +50,13 @@ const start = async () => {
             app.post('/api/history', async (req, res) => {
                 // Extract the request body to get the data for the new document
                 console.log(req.body)
-                const { name, price, totalPrice } = req.body;
+                const keyId = req.body;
+                console.log(keyId)
+                var datetime = new Date();
                 try {
-                    // Check if the item already exists in the 'History' collection
-                    const existingItem = await History.findOne({ name });
-
-                    if (existingItem) {
-                        // Return an error response if the item already exists
-                        return res.status(400).json({ error: 'Item already exists in History collection' });
-                    }
-
                     // Create a new History instance with the request body data
                     const newHistoryItem = new History({
-                        name, price, totalPrice
+                        keyId, datetime
                     });
 
                     // Save the new document to the 'History' collection
