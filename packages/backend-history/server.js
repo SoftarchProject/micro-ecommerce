@@ -5,42 +5,66 @@ var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors')
 
 // set path
 dotenv.config({ path: './.env' });
 
 const mongoDB = process.env.MONGODB_ACCESS;
 
-app.get('/', (req, res, next) => {
-    res.send({ data: "API for items" })
-})
-
-app.get('/api/history', (req, res, next) => {
-    mockData = {
-        id: 1,
-        items: [
-            { name: "Tree1", price: "60", quantity: "2", total_prcie:"120"},
-            { name: "Tree2", price: "30", quantity: "45", total_prcie:"1350"}
-        ],
-        date: "2023-4-12"
-    }
-    res.send(mockData)
-    console.log("Get history list")
-})
-
-app.post('/api/history', (req, res, next) => {
-    let data = req.body
-    res.send("History:", data)
-})
+app.use(cors());
 
 const start = async () => {
     try {
         await mongoose.connect(
-            mongoDB
-        );
-        app.listen(3003, () => {
-            console.log("Listening port: http://localhost:3003/")
-        })
+            mongoDB, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }
+        ).then(() => {
+            const collection = mongoose.connection.db.collection("History")
+
+            app.get('/', (req, res, next) => {
+                res.send({ data: "API for history" })
+            })
+
+            app.get('/api/history', async (req, res, next) => {
+                try {
+                    const documents = await collection.find({}).toArray();
+                    res.json(documents);
+                } catch (err) {
+                    console.error(err);
+                }
+            })
+
+            app.post('/api/history', async (req, res) => {
+                // Extract the request body to get the data for the new document
+                console.log(req.body)
+                const { name, price, totalPrice } = req.body;
+
+                try {
+                    // Create a new Item instance with the request body data
+                    const newItem = new Item({
+                        name,
+                        price,
+                        totalPrice
+                    });
+
+                    // Save the new document to the 'Item' collection
+                    await newItem.save();
+
+                    // Return a success response
+                    res.json({ message: 'Item inserted successfully' });
+                } catch (err) {
+                    console.error(err);
+                    res.status(500).json({ error: 'Failed to insert item' });
+                }
+            });
+
+            app.listen(3003, () => {
+                console.log("Listening port: http://localhost:3003/")
+            })
+        });
     } catch (error) {
         console.error(error);
         process.exit(1);
