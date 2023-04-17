@@ -1,0 +1,20 @@
+0 silly argv {
+0 silly argv   _: [ 'run' ],
+0 silly argv   stream: true,
+0 silly argv   parallel: true,
+0 silly argv   lernaVersion: '6.6.1',
+0 silly argv   '$0': 'node_modules\\lerna\\dist\\cli.js',
+0 silly argv   script: 'dev'
+0 silly argv }
+1 notice cli v6.6.1
+2 verbose rootPath C:\Users\TOUCH\Desktop\KU_UNIVERSITY\YEAR_3_SEMESTER_2\SOFTARCH\Project\Micro-lerna
+3 error JSONError: Unexpected token "}" (0x7D) in JSON at position 404 while parsing near "...on\": \"^2.0.22\"\n  },\n}" in packages\loggerMS\package.json
+3 error
+3 error [0m [90m 17 |[39m     [32m"nodemon"[39m[33m:[39m [32m"^2.0.22"[39m[0m
+3 error [0m [90m 18 |[39m   }[33m,[39m[0m
+3 error [0m[31m[1m>[22m[39m[90m 19 |[39m }[0m
+3 error [0m [90m    |[39m [31m[1m^[22m[39m[0m
+3 error
+3 error     at parseJson (C:\Users\TOUCH\Desktop\KU_UNIVERSITY\YEAR_3_SEMESTER_2\SOFTARCH\Project\Micro-lerna\node_modules\parse-json\index.js:29:21)
+3 error     at parse (C:\Users\TOUCH\Desktop\KU_UNIVERSITY\YEAR_3_SEMESTER_2\SOFTARCH\Project\Micro-lerna\node_modules\load-json-file\index.js:15:9)
+3 error     at module.exports (C:\Users\TOUCH\Desktop\KU_UNIVERSITY\YEAR_3_SEMESTER_2\SOFTARCH\Project\Micro-lerna\node_modules\load-json-file\index.js:18:47)
