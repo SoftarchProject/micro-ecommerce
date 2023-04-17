@@ -13,6 +13,17 @@ dotenv.config({ path: './.env' });
 const mongoDB = process.env.MONGODB_ACCESS;
 
 app.use(cors());
+app.use(jsonParser)
+
+const historySchema = new mongoose.Schema({
+    // Define the schema fields here
+    // For example:
+    name: String,
+    price: String,
+    totalPrice: Number
+});
+
+const History = mongoose.model('History', historySchema);
 
 const start = async () => {
     try {
@@ -41,23 +52,28 @@ const start = async () => {
                 // Extract the request body to get the data for the new document
                 console.log(req.body)
                 const { name, price, totalPrice } = req.body;
-
                 try {
-                    // Create a new Item instance with the request body data
-                    const newItem = new Item({
-                        name,
-                        price,
-                        totalPrice
+                    // Check if the item already exists in the 'History' collection
+                    const existingItem = await History.findOne({ name });
+
+                    if (existingItem) {
+                        // Return an error response if the item already exists
+                        return res.status(400).json({ error: 'Item already exists in History collection' });
+                    }
+
+                    // Create a new History instance with the request body data
+                    const newHistoryItem = new History({
+                        name, price, totalPrice
                     });
 
-                    // Save the new document to the 'Item' collection
-                    await newItem.save();
+                    // Save the new document to the 'History' collection
+                    await newHistoryItem.save();
 
                     // Return a success response
-                    res.json({ message: 'Item inserted successfully' });
+                    res.json({ message: 'Item inserted successfully into History collection' });
                 } catch (err) {
                     console.error(err);
-                    res.status(500).json({ error: 'Failed to insert item' });
+                    res.status(500).json({ error: 'Failed to insert item into History collection' });
                 }
             });
 
