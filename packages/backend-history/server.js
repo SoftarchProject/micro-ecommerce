@@ -33,7 +33,7 @@ const start = async () => {
             useUnifiedTopology: true
         }
         ).then(() => {
-            const collection = mongoose.connection.db.collection("History")
+            const collection = mongoose.connection.db.collection("histories")
 
             app.get('/', (req, res, next) => {
                 res.send({ data: "API for history" })
