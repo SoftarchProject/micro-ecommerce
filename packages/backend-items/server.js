@@ -10,6 +10,9 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './.env' });
 const mongoDB = process.env.MONGODB_ACCESS;
 
+app.use(cors());
+app.use(jsonParser)
+
 const start = async () => {
     try {
         await mongoose.connect(
