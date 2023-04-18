@@ -31,7 +31,7 @@ export default function CartModal({ handleClose }: { handleClose: () => void }) 
       />
       
       <div onClick={handleClose} className="fixed inset-0 flex justify-center w-full bg-[#100e0e3f] overflow-auto flex-col lg:h-screen md:flex-row md:grid md:grid-cols-2 lg:grid-cols-4 gap-y-16 z-50">
-        {Object.values(fishes.items)?.length == 0 && <div className="relative max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg"> No avaliable</div>}
+        {Object.values(fishes.items)?.length == 0 && <div className="self-center col-span-2 col-start-2 p-4 mx-auto text-5xl font-bold bg-white rounded-md aspect-square"> No avaliable</div>}
         {Object.values(fishes.items)?.map((item: any, index: number) =>
           <div className="flex px-4 overflow-auto lg:m-auto" onClick={(e) => { e.stopPropagation(); }}>
             <div className="relative max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg">

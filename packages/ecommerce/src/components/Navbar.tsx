@@ -19,7 +19,7 @@ function Navbar() {
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
                 <a href="/" className="flex items-center">
                     <img src={treeLogo} className="h-8 mr-3 rounded-[180px]" alt="Flowbite Logo" />
-                    <span className="self-center text-2xl font-semibold text-white whitespace-nowrap">Logo</span>
+                    <span className="self-center text-2xl font-semibold text-white whitespace-nowrap">Booking</span>
                 </a>
                 <div className="flex md:order-2">
                     <div className="relative inline-block text-left">
