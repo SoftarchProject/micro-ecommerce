@@ -49,6 +49,9 @@ export default function CartModal({ handleClose }: { handleClose: () => void }) 
                     <p className="text-base text-gray-dark">
                       {item?.price} price
                     </p>
+                    <p className="text-base text-gray-dark">
+                      {item?.count} quantity
+                    </p>
                   </div>
 
                 </div>
