@@ -6,6 +6,7 @@ phases:
         - npm i nodemon
         - npm install -g nodemon
         - npm install -g vite
+        - npm install -g express
         - npx lerna run dev --stream --parallel
         - aws s3 cp build s3://$S3_BUCKET --recursive --exclude 'index.html'
         - aws s3 cp build/index.html s3://$S3_BUCKET
