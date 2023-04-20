@@ -9,10 +9,10 @@ phases:
         # - npm install --save-dev vite
         # - npm install -g express
         - cd packages
-        - cd ecommerce
-        - npm install vite
-        - npm install
-        - cd ..
+        # - cd ecommerce
+        # - npm install vite
+        # - npm install
+        # - cd ..
         - cd backend-items
         - npm install express
         - npm install       
