@@ -5,23 +5,9 @@ phases:
         - npm install
         - npm i nodemon
         - npm install -g nodemon
-        # - npm install -g vite
-        # - npm install --save-dev vite
-        # - npm install -g express
-        - cd packages/ecommerce && npm install vite
-        # - cd ecommerce
-        # - npm install vite
-        # - npm install
-        # - cd ..
-        # - cd backend-items
-        - npm install express
-        - npm install       
-        - cd ..
-        - cd backend-history
-        - npm install express
-        - npm install
-        - cd ..
-        - cd ..
+        - cd packages/ecommerce && npm install vite && npm install
+        - cd packages/backend-items && npm install express && npm install
+        - cd packages/backend-history && npm install express && npm install
         - npx lerna run dev --stream --parallel
         - aws s3 cp build s3://$S3_BUCKET --recursive --exclude 'index.html'
         - aws s3 cp build/index.html s3://$S3_BUCKET
