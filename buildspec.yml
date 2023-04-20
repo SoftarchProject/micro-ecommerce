@@ -9,7 +9,7 @@ phases:
         # - npm install --save-dev vite
         # - npm install -g express
         - cd packages
-        - cd ecommerce 
+        - cd ecommerce
         - npm install vite
         - npm install
         - cd ..
