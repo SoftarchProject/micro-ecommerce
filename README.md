@@ -70,7 +70,7 @@ VITE_BACKEND_HISTORY_API_URL = <api-of-history-order>
 5. Start the microservices using the following command:
 
 ```
-npx lerna run dev --stream --parallel
+$ npx lerna run dev --stream --parallel
 ```
 
 6. The website will be available at `http://localhost:3000`.
@@ -84,3 +84,8 @@ Contributions are welcome! To contribute to this project, please follow these st
 2. Make your changes and commit them.
 
 3. Create a pull request.
+
+## Participant names
+Chatchawarin Chatchavalowng
+Panu Tanatanavivat
+Kittison Jackthreemongkol
