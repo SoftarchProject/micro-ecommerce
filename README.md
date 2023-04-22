@@ -86,6 +86,8 @@ Contributions are welcome! To contribute to this project, please follow these st
 3. Create a pull request.
 
 ## Participant names
-Chatchawarin Chatchavalowng
-Panu Tanatanavivat
-Kittison Jackthreemongkol
+| Name | AKA |
+| ---- | --- |
+| Chatchawarin Chatchavalwong | [XOQDY](https://github.com/XOQDY) |
+| Panu Tanatanavivat | [SoSorryTT](https://github.com/SoSorryTT) |
+| Kittison Jackthreemongkol | [touchtool](https://github.com/touchtool) |
