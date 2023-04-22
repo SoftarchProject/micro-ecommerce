@@ -28,6 +28,8 @@ The following technologies are used in this project:
 
 - **MongoDB**: Used as the primary database for storing user and catalog data.
 
+- **Tailwind**: Used as a CSS framework for styling the website.
+
 - **Lerna Monorepo**: Used for managing multiple packages in a single repository.
 
 ## Installation
