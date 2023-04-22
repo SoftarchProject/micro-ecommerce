@@ -63,8 +63,8 @@ $ npm install
 
 ```
 MONGODB_ACCESS=<your-mongodb-connection-url>
-VITE_BACKEND_ITEMS_API_URL = <api-of-category-items>
-VITE_BACKEND_HISTORY_API_URL = <api-of-history-order>
+VITE_BACKEND_ITEMS_API_URL=<api-of-category-items>
+VITE_BACKEND_HISTORY_API_URL=<api-of-history-order>
 ```
 
 5. Start the microservices using the following command:
