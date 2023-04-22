@@ -14,6 +14,7 @@ The project is developed using microservices architecture. The microservices are
 All of the microservices are deployed on AWS platform using the following services:
 
 - **Amazon EC2**: Provides virtual servers for deploying the microservices.
+- **Amazon S3**: Provides storage for static assets such as images and videos.
 
 ## Technology Stack
 
