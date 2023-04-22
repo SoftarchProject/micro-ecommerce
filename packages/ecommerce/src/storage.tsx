@@ -12,7 +12,7 @@ interface storageInterface {
         }
     },
 
-    addAFish: (itemId: string, name: string, price: number, quality: number) => void
+    addAFish: (itemId: string, name: string, price: number, quality: number, img:string) => void
     clearFish: () => void
 }
 
@@ -24,10 +24,10 @@ export const useFishStore = create<storageInterface>()(
     persist(
         (set) => ({
             fishes: { items: {} },
-            addAFish: (itemId: string, name: string, price: number, quality: number) => set((state) => ({
+            addAFish: (itemId: string, name: string, price: number, quality: number, img:string) => set((state) => ({
                 fishes: {
                     items: { ...state.fishes.items,
-                         [itemId]: {name, price, count:quality} }
+                         [itemId]: {name, price, count:quality, img:img} }
                 }
             })),
             clearFish: ()=>{

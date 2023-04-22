@@ -37,7 +37,7 @@ export default function CartModal({ handleClose }: { handleClose: () => void }) 
             <div className="relative max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg">
               <div className="mt-3 sm:flex">
                 <div className="flex flex-col rounded-lg shadow-lg">
-                  <img className="rounded-t-xl w-[250px] h-[250px] aspect-square md:w-full" src={item?.image ?? "www.google.com/image.png"}
+                  <img className="rounded-t-xl w-[250px] h-[250px] aspect-square md:w-full" src={item?.img ?? "www.google.com/image.png"}
                     onError={(e: any) => {
                       console.log(e)
 

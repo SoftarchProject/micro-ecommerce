@@ -6,6 +6,7 @@ interface itemProps{
     _id?: any,
     name?: any,
     price?: any,
+    total?: any,
     img?: any
 }
 
@@ -17,7 +18,7 @@ export default function Card(itemProps: itemProps = {name: "", price: 0}) {
     
     function handleChange() {
         if (itemProps['name'] !== undefined && itemProps['price'] !== undefined && itemProps['price'] !== '') {
-            addAFish(itemProps["_id"], itemProps["name"], itemProps["price"], parseInt(inputRef?.current?.value))
+            addAFish(itemProps["_id"], itemProps["name"], itemProps["price"], parseInt(inputRef?.current?.value), itemProps["img"])
           }
       }
 
