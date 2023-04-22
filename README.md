@@ -1,6 +1,5 @@
-# Movie and TV Show E-commerce Website
-
-This project is an e-commerce website for buying movies and TV shows. The website uses microservices architecture and is built on AWS cloud platform. The website allows users to browse through a wide range of movies and TV shows, add them to their cart, and make purchases using secure payment methods.
+# Book E-commerce Website
+This project is an e-commerce website for buying books. The website uses microservices architecture and is built on AWS cloud platform. The website allows users to browse through a wide range of books, add them to their cart, and make purchases.
 
 ## Architecture
 
@@ -27,6 +26,8 @@ The following technologies are used in this project:
 - **Express.js**: Used as a web application framework for Node.js.
 
 - **MongoDB**: Used as the primary database for storing user and catalog data.
+
+- **Lerna Monorepo**: Used for managing multiple packages in a single repository.
 
 ## Installation
 
@@ -59,10 +60,16 @@ $ npm install
 ```
 
 
-4. Create an `.env` file in the root directory of the project and add the following environment variables:
+4. Create an `.env` file in each of directory following the instruction of the project and add the following environment variables:
 
 ```
+package/backend-history and package/backend-items 
+
 MONGODB_ACCESS=<your-mongodb-connection-url>
+```
+```
+packages/ecommerce 
+
 VITE_BACKEND_ITEMS_API_URL=<api-of-category-items>
 VITE_BACKEND_HISTORY_API_URL=<api-of-history-order>
 ```
